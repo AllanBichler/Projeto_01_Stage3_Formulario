@@ -1,0 +1,229 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, input, button, select, textarea{
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: #e5e5e5;
+}
+body::before{
+    content: '';
+    width: 100%;
+    height: 368px;
+
+    position: absolute;  /* para sobrepor todas as outras camadas */
+    top:0;
+    left: 0;
+    z-index: -1; /* serve para que você consiga escolher qual camada você deseja sobrepor o outro elemento*/
+    background: #121214;
+     
+}
+
+.page{
+    width: 736px; /*largura*/
+    margin: auto; /*para alinhar*/
+}
+
+header{
+    width: 319px;
+    margin-top: 74px;
+    
+}
+
+header h1{
+    font-family: 'Archivo',sans-serif;
+    font-weight: 700;
+    line-height: 42px;
+    color: white;
+    margin-bottom: 24px;
+}
+
+header p{
+    font-size: 16px;
+    line-height: 26px; /* 162.5% */
+    color: #42D3FF;
+}
+form{
+    background: #fafafc;
+    min-height: 300px; /*altura minima*/
+    margin-top: 38px;
+    border-radius: 8px 8px 0px 0px;
+    padding: 64px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+fieldset{
+    border: none;
+}
+fieldset legend{
+    font-family: 'Archivo' sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 34px;
+
+    width: 100%;
+    border-bottom: 1px solid #e6e6f0;
+    padding-bottom: 16px;   /* Quando temos uma borda e queremos que ela tenha uma separação do texto, usamos o padding*/
+}
+
+.fieldset-wrapper{
+    display: flex;
+    flex-direction: column ;
+    gap: 24px;
+
+}
+
+
+.input-wrapper{
+    display: flex;
+    flex-direction: column;
+    color: #4E4958;
+    font-size: 14px;
+    line-height: 24px; /* 171.429% */
+}
+
+.input-wrapper label,
+.checkbox-wrapper label{
+    font-size: 14px;
+    line-height: 24px; /* 171.429% */
+
+    color: #4E4958;
+    
+    margin-bottom: 8px;
+}
+.input-wrapper label span{
+    margin-left: 12px;
+    color: #C1BCCC;
+    font-size: 12px;
+    line-height: 20px; /* 166.667% */
+}
+
+.input-wrapper label span:hover{
+    color: #6c6a71;
+}
+
+
+
+.input-wrapper input, 
+.input-wrapper textarea,
+.input-wrapper select
+{
+    background: #fafafc;
+    border: 1px solid #e6e6f0; 
+    border-radius: 8px; /* arredonadamento dessa borda */    
+    height: 56px;
+    padding: 0 24px;
+    color: var(--Texts-Inputs, #817f88);
+    font-size: 16px;
+    line-height: 26px; /* 162.5% */
+
+}
+
+.input-wrapper textarea{
+    padding: 0;
+    height: 268px;
+}
+
+.input-wrapper select{
+    appearance: none; /*Tem alguns navegadores que não rodam essa tag*/
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1_54)'%3E%3Cpath d='M8 10L12 14L16 10' stroke='%239C98A6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1_54'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: right 24px top 50%;
+}
+.col_3{
+    display: flex;
+    gap: 20px;
+}
+.col_3 > div:nth-child(1){
+    width: 100%;
+}
+
+/* Aula do checkbox */
+/* como criar um checkbox: */
+
+
+
+.checkbox-wrapper{
+    position: relative;
+}
+
+.checkbox-wrapper label{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    gap: 16px;
+}
+
+.checkbox-wrapper input{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 24px;
+    height: 24px;
+
+    opacity: 0;
+
+}
+.checkbox-wrapper label::before{
+    content: ' ';
+    width: 24px;
+    height: 24px;
+    border: 1px solid #e6e6f0;
+    display: block;
+    border-radius: 8px;
+}
+
+.checkbox-wrapper input:checked + label::before{ /* isso faz com que ele tenha o "vezinho" dentro dele como sinalizador */
+    background-image: url("data:image/svg+xml,%3Csvg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='1' y='1' width='24' height='24' rx='8' fill='%23FAFAFC' stroke='%23E6E6F0'/%3E%3Cg clip-path='url(%23clip0_3021_21)'%3E%3Cpath d='M10 17.17L5.83 13L4.41 14.41L10 20L22 8L20.59 6.59L10 17.17Z' fill='%2342D3FF'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_3021_21'%3E%3Crect width='24' height='24' fill='white' transform='translate(1 1)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+}
+
+.checkbox-wrapper input:focus + label::before{
+    outline: 2px solid black;
+}
+footer{
+    background: #f0f0f4;
+
+    height: 136px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 40px 64px;
+
+    margin-bottom: 100px;
+
+    border-top: 1px solid #d6d6d6;
+
+    border-radius: 0px 0px 8px 8px;
+}
+
+footer .button{
+
+    height: 56px;
+    background: #04d361;
+    border: 0;
+    border-radius: 8px;
+
+    font-family: 'Archivo';
+    font-weight: 600;   
+    font-size: 16px;
+    line-height: 26px;
+
+    color: #ffffff;
+}
+
+footer .button:hover{
+    background: #08a04c;
+}
+
+input:invalid{
+    border: 1px solid #ff1010;
+}
